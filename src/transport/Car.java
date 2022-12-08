@@ -243,4 +243,22 @@ public class Car {
             }
         }
     }
+    @Override
+    public String toString() {
+        return "Car : " + brand + " " + model +
+                ",год выпуска " + productionYear +
+                ", сборка в " + productionCountry +
+                ", цвет кузова - " + color +
+                ", объем двигателя — " + engineVolume +
+                ", коробка передач - " + gearbox +
+                ",тип кузова - " + typeOfBody +
+                ", регистрационный номер - " + regNumb +
+                ", количество мест - " + seasCount +
+                ", " + (isSummerRubber() ? "летняя" : "зимняя") + " резина" +
+                ", " + (getKey().isKeylessAccess() ? "бесключевой доступ" : "ключевой доступ") +
+                ", " + (getKey().isRemoteEngineStart() ? "удаленный запуск двигателя" : "обычный запуск двигателя") +
+                ", номер страховки - " + getInsurance().getNumber() +
+                ", стоимость страховки - " + getInsurance().getCost() +
+                ", срок действия страховки - " + getInsurance().getExpireDate();
+    }
 }

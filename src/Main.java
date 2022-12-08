@@ -16,31 +16,12 @@ public class Main {
         bmw.getInsurance().checkNumber();
         Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, "красный", 2018, "Южной Корее");
         Car hyundai = new Car("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южной Корее");
-        printInfo(lada);
-        printInfo(audi);
-        printInfo(bmw);
-        printInfo(kia);
-        printInfo(hyundai);
+        System.out.println(lada);
+        System.out.println(audi);
+        System.out.println(bmw);
+        System.out.println(kia);
+        System.out.println(hyundai);
 
     }
 
-    private static void printInfo(Car car) {
-        System.out.println(
-                car.getBrand() + " " + car.getModel() +
-                        ",год выпуска " + car.getProductionYear() +
-                        ", сборка в " + car.getProductionCountry() +
-                        ", цвет кузова - " + car.getColor() +
-                        ", объем двигателя — " + car.getEngineVolume() +
-                        ", коробка передач - " + car.getGearbox() +
-                        ",тип кузова - " + car.getTypeOfBody() +
-                        ", регистрационный номер - " + car.getRegNumb() +
-                        ", количество мест - " + car.getSeasCount() +
-                        ", " + (car.isSummerRubber() ? "летняя" : "зимняя") + " резина" +
-                        ", " + (car.getKey().isKeylessAccess() ? "бесключевой доступ" : "ключевой доступ") +
-                        ", " + (car.getKey().isRemoteEngineStart() ? "удаленный запуск двигателя" : "обычный запуск двигателя") +
-                        ", номер страховки - " + car.getInsurance().getNumber() +
-                        ", стоимость страховки - " + car.getInsurance().getCost() +
-                        ", срок действия страховки - " + car.getInsurance().getExpireDate()
-        );
-    }
 }
