@@ -2,6 +2,7 @@ package transport;
 import java.time.LocalDate;
 
 public class Car extends Transport {
+    private String fill;
     private double engineVolume;
     private String color;
     private String gearbox;
@@ -213,6 +214,16 @@ public class Car extends Transport {
             return "Срок действия страховки до = " + expireDate +
                     ", стоимость страховки = " + cost +
                     ", номер страховки = " + number;
+        }
+    }
+    @Override
+    public void refill(String fill) {
+        if(fill.equals("бензин") || fill.equals("дизель") ) {
+            System.out.println("Можно заправить бензином или дизелем");
+        } else if(fill.equals("ток")) {
+            System.out.println("Зарядить на специальных электроду-парковках");
+        } else {
+            System.out.println("Информация о топливе не указана");
         }
     }
 }

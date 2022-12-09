@@ -6,6 +6,7 @@ public class Train extends Transport {
     private String nameStation;
     private String terminus;
     private int numCars;
+    private String fill;
 
     public Train(String brand,
                  String model,
@@ -113,5 +114,13 @@ public class Train extends Transport {
                 ", следует до станции " + terminus +
                 ". Цена поездки = " + cost + " рублей" +
                 ", в поезде " + numCars + " вагонов";
+    }
+    @Override
+    public void refill(String fill) {
+        if(fill.equals("дизель")) {
+            System.out.println("Заправить можно только дизелем");
+        } else {
+            System.out.println("Топливо не подходит для заправки");
+        }
     }
 }

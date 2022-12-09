@@ -12,6 +12,7 @@ public class Main {
                 2015,
                 "России");
         lada.print();
+        lada.refill("бензин");
         Car audi = new Car(
                 "Audi",
                 "A8 50 L TDI quattro",
@@ -20,6 +21,7 @@ public class Main {
                 2020,
                 "Германии");
         audi.print();
+        audi.refill("бензин");
         Car bmw = new Car(
                 "BMW",
                 "Z8",
@@ -28,6 +30,7 @@ public class Main {
                 2021,
                 "Германии");
         bmw.print();
+        bmw.refill("бензин");
         Car kia = new Car(
                 "Kia",
                 "Sportage 4-го поколения",
@@ -35,6 +38,7 @@ public class Main {
                 2018,
                 "Южной Корее");
         kia.print();
+        kia.refill("бензин");
         Car hyundai = new Car(
                 "Hyundai",
                 "Avante",
@@ -43,6 +47,7 @@ public class Main {
                 2016,
                 "Южной Корее");
         hyundai.print();
+        hyundai.refill("бензин");
 
         System.out.println();
         Train lastochka = new Train(
@@ -56,6 +61,7 @@ public class Main {
                 "Минск-Пассажирский",
                 11);
         System.out.println(lastochka);
+        lastochka.refill("дизель");
         Train leningrad = new Train(
                 "Ленинград",
                 "D-125",
@@ -67,6 +73,7 @@ public class Main {
                 "Ленинград-Пассажирский",
                 8);
         System.out.println(leningrad);
+        leningrad.refill("дизель");
 
         System.out.println();
         Bus olimp = new Bus(
@@ -77,6 +84,7 @@ public class Main {
                 "России",
                 90);
         System.out.println(olimp);
+        olimp.refill("бензин");
         Bus scania = new Bus(
                 "Scania",
                 "K400 IB 4X2 TOURING HD",
@@ -85,6 +93,7 @@ public class Main {
                 "Швеции",
                 100);
         System.out.println(scania);
+        scania.refill("бензин");
         Bus liaz = new Bus(
                 "ЯрКамп",
                 "ЛиАЗ 5250 \"Вояж\"на шасси SCANIA",
@@ -93,5 +102,6 @@ public class Main {
                 "России",
                 90);
         System.out.println(liaz);
+        liaz.refill("бензин");
     }
 }
