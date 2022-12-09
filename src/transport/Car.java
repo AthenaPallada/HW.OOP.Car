@@ -1,15 +1,10 @@
 package transport;
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private double engineVolume;
     private String color;
-    private final int productionYear;
-    private final String productionCountry;
     private String gearbox;
-    private final String typeOfBody;
     private final String regNumb;
     private int seasCount;
     private boolean summerRubber;
@@ -23,29 +18,10 @@ public class Car {
                String productionCountry,
                String typeOfBody,
                String regNumb) {
-        if (brand == null || brand.isEmpty()) {
-            brand = "default";
-        }
-        this.brand = brand;
-        if (model == null) {
-            model = "default";
-        }
-        this.model = model;
+        super(brand, model, productionYear, productionCountry, typeOfBody);
         setEngineVolume(engineVolume);
-        if (productionCountry == null) {
-            productionCountry = "default";
-        }
-        this.productionCountry = productionCountry;
         setGearbox(null);
         this.color = color;
-        if (productionYear < 0) {
-            productionYear = 2000;
-        }
-        this.productionYear = productionYear;
-        if (typeOfBody == null || typeOfBody.isEmpty()) {
-            typeOfBody = "седан";
-        }
-        this.typeOfBody = typeOfBody;
         if (regNumb == null || regNumb.isEmpty()) {
             regNumb = "x000xx000";
         }
@@ -53,6 +29,7 @@ public class Car {
         setSeasCount(0);
         setKey(null);
         setInsurance(null);
+        setSummerRubber(true);
     }
 
     public Car(String brand,
@@ -86,25 +63,10 @@ public class Car {
         return insurance;
     }
     public void setInsurance(Insurance insurance) {
-        if(insurance == null){
+        if(insurance == null) {
             insurance = new Insurance(null, 10_000, null);
         }
         this.insurance = insurance;
-    }
-    public String getBrand() {
-        return brand;
-    }
-    public String getModel() {
-        return model;
-    }
-    public int getProductionYear() {
-        return productionYear;
-    }
-    public String getProductionCountry() {
-        return productionCountry;
-    }
-    public String getTypeOfBody() {
-        return typeOfBody;
     }
     public String getRegNumb() {
         return regNumb;
@@ -122,6 +84,9 @@ public class Car {
         return color;
     }
     public void setColor(String color) {
+        if (color == null) {
+            color = "белый";
+        }
         this.color = color;
     }
     public int getSeasCount() {
@@ -133,7 +98,6 @@ public class Car {
         }
         this.seasCount = seasCount;
     }
-
     public String getGearbox() {
         return gearbox;
     }
@@ -166,19 +130,20 @@ public class Car {
     }
     @Override
     public String toString() {
-        return "brand ='" + brand + '\'' +
-                ", model ='" + model + '\'' +
-                ", engineVolume =" + engineVolume +
-                ", цвет кузова ='" + color + '\'' +
-                ", год выпуска =" + productionYear +
-                ", сборка в ='" + productionCountry + '\'' +
-                ", коробка передач ='" + gearbox + '\'' +
-                ", тип кузова ='" + typeOfBody + '\'' +
-                ", регистрационный номер ='" + regNumb + '\'' +
-                ", количество мест =" + seasCount +
-                ", summerRubber ='" + summerRubber +
-                ", key ='" + key +
-                ", insurance ='" + insurance;
+        return "Врэнд = " + getBrand() +
+                ", модель = " + getModel() +
+                ", тип кузова = " + getTypeOfBody() +
+                ", год выпуска = " + getProductionYear() +
+                ", сборка в = " + getProductionCountry() +
+                ", engineVolume = " + engineVolume +
+                ", \nцвет кузова = " + color +
+                ", коробка передач = " + gearbox +
+                ", регистрационный номер = " + regNumb +
+                ", количество мест = " + seasCount +
+                ", " + (isSummerRubber() ? "летняя" : "зимняя") + " резина" +
+                ", " + (getKey().isKeylessAccess() ? "бесключевой доступ" : "ключевой доступ") +
+                ", " + (getKey().isRemoteEngineStart() ? "удаленный запуск двигателя" : "обычный запуск двигателя") +
+                ", \nInsurance: " + insurance;
     }
     public void print() {
         System.out.println(this);
@@ -198,8 +163,8 @@ public class Car {
         }
         @Override
         public String toString() {
-            return "remoteEngineStart=" + remoteEngineStart +
-                    ", keylessAccess=" + keylessAccess;
+            return "удалённый запуск двигателя = " + remoteEngineStart +
+                    ", бесключевой доступ = " + keylessAccess;
         }
     }
     public static class Insurance {
@@ -245,9 +210,9 @@ public class Car {
 
         @Override
         public String toString() {
-            return "expireDate=" + expireDate +
-                    ", cost=" + cost +
-                    ", number='" + number;
+            return "Срок действия страховки до = " + expireDate +
+                    ", стоимость страховки = " + cost +
+                    ", номер страховки = " + number;
         }
     }
 }
