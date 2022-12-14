@@ -1,62 +1,78 @@
-import transport.Bus;
-import transport.PassengerCar;
-import transport.Truck;
+import transport.*;
 import transport.driver.DriverB;
 import transport.driver.DriverC;
 import transport.driver.DriverD;
+
 
 public class Main {
     public static void main(String[] args) {
         Bus olimp = new Bus(
                 "ОАО «Транс-Альфа Электро»",
                 "ВМЗ-4252 «Олимп»",
-                270);
+                270,
+                Capacity.MEDIUM);
         Bus scania = new Bus(
                 "Scania",
                 "K400 IB 4X2 TOURING HD",
-                400);
+                400,
+                Capacity.LARGE);
         Bus liaz = new Bus(
                 "ЯрКамп",
                 "ЛиАЗ 5250 \"Вояж\"на шасси SCANIA",
-                250);
+                250,
+                Capacity.LARGE);
         Bus maz = new Bus(
                 "МАЗ",
                 " - 103",
-                231);
+                231,
+                Capacity.SMALL);
+        System.out.println(maz);
 
         PassengerCar lada = new PassengerCar(
                 "Lada",
                 "Granta",
-                1.7);
+                1.7,
+                TypeOFBody.HATCHBACK);
         PassengerCar audi = new PassengerCar(
                 "Audi",
                 "A8 50 L TDI quattro",
-                3);
+                3,
+                TypeOFBody.SEDAN);
         PassengerCar bmw = new PassengerCar(
                 "BMW",
                 "Z8",
-                3);
+                3,
+                TypeOFBody.COUPE);
         PassengerCar kia = new PassengerCar(
                 "Kia",
                 "Sportage 4-го поколения",
-                2.4);
+                2.4,
+                TypeOFBody.SEDAN);
+        System.out.println(lada);
+        System.out.println(kia);
+
 
         Truck gaz = new Truck(
                 "ГАЗ",
                 " - 3307",
-                120);
+                120,
+                Weight.N1);
         Truck zil = new Truck(
                 "ЗИЛ",
                 " - 431610",
-                150);
+                150,
+                Weight.N3);
         Truck uaz = new Truck(
                 "UAZ",
                 "2360 Cargo",
-                128);
+                128,
+                Weight.N2);
         Truck daf = new Truck(
                 "DAF Trucks NV",
                 "CF (Compact Forte)",
-                340);
+                340,
+                Weight.N2);
+        System.out.println(daf);
 
         DriverB peter = new DriverB("Кармаников Питер Иванович", true, 2);
         DriverC harry = new DriverC("Солдатов Гариэт Петрович",true, 5);

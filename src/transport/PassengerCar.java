@@ -3,10 +3,21 @@ package transport;
 import transport.driver.Competing;
 
 public class PassengerCar extends Transport implements Competing {
+
+    private TypeOFBody typeOFBody;
     public String fill;
 
-    public PassengerCar(String brand, String model, double engineVolume) {
+    public PassengerCar(String brand, String model, double engineVolume, TypeOFBody typeOFBody) {
         super(brand, model, engineVolume);
+        setTypeBody(typeOFBody);
+    }
+
+    public TypeOFBody getTypeBody() {
+        return typeOFBody;
+    }
+
+    public void setTypeBody(TypeOFBody typeOFBody) {
+       this.typeOFBody = typeOFBody;
     }
 
     @Override
@@ -41,5 +52,20 @@ public class PassengerCar extends Transport implements Competing {
     @Override
     public int MaximumSpeed() {
         return (int) (Math.random() * 100);
+    }
+
+    @Override
+    public void printType() {
+        if(typeOFBody == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Тип кузова " + typeOFBody.getName());
+        }
+    }
+
+    @Override
+    public String toString() {
+        printType();
+        return super.toString();
     }
 }

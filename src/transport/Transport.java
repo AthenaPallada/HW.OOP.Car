@@ -110,12 +110,13 @@ public abstract class Transport {
 //        }
 //        this.maxSpeed = maxSpeed;
 //    }
-        public abstract void refill(String fill);
+    public abstract void refill(String fill);
 
+    public abstract void printType();
 
     @Override
     public String toString() {
-        return "Врэнд = "+ brand +
+        return "Врэнд = " + brand +
                 ", модель " + model +
                 ", объем двигателя " + engineVolume;
     }
