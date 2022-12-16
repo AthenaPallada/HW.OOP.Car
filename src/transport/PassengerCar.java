@@ -64,6 +64,16 @@ public class PassengerCar extends Transport implements Competing {
     }
 
     @Override
+    public boolean runDiagnostics() {
+        return Math.random() > 0.5;
+    }
+
+//    @Override
+//    public boolean runDiagnostics(boolean hasDrivingLicense) {
+//        return false;
+//    }
+
+    @Override
     public String toString() {
         printType();
         return super.toString();

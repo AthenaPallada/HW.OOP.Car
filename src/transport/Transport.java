@@ -114,6 +114,10 @@ public abstract class Transport {
 
     public abstract void printType();
 
+    public abstract boolean runDiagnostics();
+
+    //public abstract boolean runDiagnostics(boolean hasDrivingLicense);
+
     @Override
     public String toString() {
         return "Врэнд = " + brand +

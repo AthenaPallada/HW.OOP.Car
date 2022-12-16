@@ -1,15 +1,24 @@
 package transport.driver;
 
 import transport.Transport;
+import transport.category.Category;
 
 public abstract class Driver<T extends Transport> {
     private String fullName;
     private boolean hasDrivingLicense;
     private int experience;
+    private Category category;
+
+    public Driver(String fullName, boolean hasDrivingLicense, int experience, Category category) throws IllegalAccessException {
+        setFullName(fullName);
+        setHasDrivingLicense(hasDrivingLicense);
+        setExperience(experience);
+        setCategory(category);
+    }
 
     public Driver(String fullName, boolean hasDrivingLicense, int experience) {
         setFullName(fullName);
-        this.hasDrivingLicense = hasDrivingLicense;
+        setHasDrivingLicense(hasDrivingLicense);
         setExperience(experience);
     }
 
@@ -27,11 +36,22 @@ public abstract class Driver<T extends Transport> {
     }
 
     public void setHasDrivingLicense(boolean hasDrivingLicense) {
-            this.hasDrivingLicense = hasDrivingLicense;
+        this.hasDrivingLicense = hasDrivingLicense;
     }
 
     public int getExperience() {
         return experience;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) throws IllegalAccessException {
+        if(category == null) {
+            throw new IllegalAccessException("Необходимо указать тип прав!");
+        }
+        this.category = category;
     }
 
     public void setExperience(int experience) {
@@ -46,6 +66,6 @@ public abstract class Driver<T extends Transport> {
     public abstract void refillMove(T transport);
 
     public void printInfo(T transport) {
-        System.out.println("Водитель: " + fullName + " управляет автомобилем - " + transport.getBrand() + " и будет участвовать в заезде");
+        System.out.println("Водитель: " + getFullName() + " управляет автомобилем - " + transport.getBrand() + " и будет участвовать в заезде");
     }
 }
