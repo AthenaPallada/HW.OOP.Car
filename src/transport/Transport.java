@@ -2,17 +2,15 @@ package transport;
 
 import transport.driver.Driver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport {
     private final String brand;
     private final String model;
     private double engineVolume;
-    private List<Driver<?>> drivers = new ArrayList<>();
-    private List<Mechanic<?>> mechanics = new ArrayList<>();
-    private List<Sponsor> sponsors = new ArrayList<>();
+    private Set<Driver<?>> drivers = new HashSet<>();
+    private Set<Mechanic<?>> mechanics = new HashSet<>();
+    private Set<Sponsor> sponsors = new HashSet<>();
 
     public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isEmpty()) {
@@ -116,15 +114,15 @@ public abstract class Transport {
 //    }
 
 
-    public List<Driver<?>> getDrivers() {
+    public Set<Driver<?>> getDrivers() {
         return drivers;
     }
 
-    public List<Mechanic<?>> getMechanics() {
+    public Set<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
-    public List<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
 
@@ -156,5 +154,22 @@ public abstract class Transport {
         return "Брэнд = " + brand +
                 ", модель " + model +
                 ", объем двигателя " + engineVolume;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Transport transport = (Transport) o;
+        return Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model);
     }
 }
