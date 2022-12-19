@@ -7,14 +7,15 @@ public abstract class Driver<T extends Transport> {
     private String fullName;
     private boolean hasDrivingLicense;
     private int experience;
-    private Category category;
+   // private Category category;
 
-    public Driver(String fullName, boolean hasDrivingLicense, int experience, Category category) throws IllegalAccessException {
-        setFullName(fullName);
-        setHasDrivingLicense(hasDrivingLicense);
-        setExperience(experience);
-        setCategory(category);
-    }
+//    public Driver(String fullName, boolean hasDrivingLicense, int experience, Category category) throws IllegalAccessException {
+//        this.fullName = fullName;
+//        this.hasDrivingLicense = hasDrivingLicense;
+//        this.experience = experience;
+//        this.category = category;
+//        setCategory(category);
+//    }
 
     public Driver(String fullName, boolean hasDrivingLicense, int experience) {
         setFullName(fullName);
@@ -43,16 +44,16 @@ public abstract class Driver<T extends Transport> {
         return experience;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) throws IllegalAccessException {
-        if(category == null) {
-            throw new IllegalAccessException("Необходимо указать тип прав!");
-        }
-        this.category = category;
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) throws IllegalAccessException {
+//        if(category == null) {
+//            throw new IllegalAccessException("Необходимо указать тип прав!");
+//        }
+//        this.category = category;
+//    }
 
     public void setExperience(int experience) {
         if(experience > 0)
@@ -67,5 +68,10 @@ public abstract class Driver<T extends Transport> {
 
     public void printInfo(T transport) {
         System.out.println("Водитель: " + getFullName() + " управляет автомобилем - " + transport.getBrand() + " и будет участвовать в заезде");
+    }
+
+    @Override
+    public String toString() {
+        return fullName + ", стаж вождения: " + experience + " лет, категория "; // + category;
     }
 }

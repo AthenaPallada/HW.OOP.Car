@@ -64,15 +64,15 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
-    public boolean runDiagnostics() {
+    public boolean service() {
         System.out.println("Автобус " + getBrand() + " " + getModel() + "в диагностике не требуется");
         return true;
     }
 
-//    @Override
-//    public boolean runDiagnostics(boolean hasDrivingLicense) {
-//        return false;
-//    }
+    @Override
+    public void repair() {
+        System.out.println("Автобус: " + getBrand() + " " + getModel() + " починен");
+    }
 
     @Override
     public String toString() {

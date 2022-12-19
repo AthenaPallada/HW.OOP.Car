@@ -5,8 +5,11 @@ import transport.category.CategoryD;
 
 public class DriverD extends Driver<PassengerCar> {
 
-    public DriverD(String fullName, boolean hasDrivingLicense, int experience, CategoryD categoryD) {
+   // private CategoryD categoryD;
+
+    public DriverD(String fullName, boolean hasDrivingLicense, int experience) { //CategoryD categoryD) throws IllegalAccessException {
         super(fullName, hasDrivingLicense, experience);
+        //setCategory(categoryD);
     }
 
     @Override

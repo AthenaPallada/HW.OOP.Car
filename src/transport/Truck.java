@@ -66,14 +66,14 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
-    public boolean runDiagnostics() {
+    public boolean service() {
         return Math.random() > 0.8;
     }
 
-//    @Override
-//    public boolean runDiagnostics(boolean hasDrivingLicense) {
-//        return false;
-//    }
+    @Override
+    public void repair() {
+        System.out.println("Грузовик: " + getBrand() + " " + getModel() + " починен");
+    }
 
     @Override
     public String toString() {

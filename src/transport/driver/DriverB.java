@@ -5,8 +5,9 @@ import transport.category.CategoryB;
 
 public class DriverB extends Driver<Bus> {
 
-    public DriverB(String fullName, boolean hasDrivingLicense, int experience, CategoryB categoryB) {
+    public DriverB(String fullName, boolean hasDrivingLicense, int experience) { //CategoryB categoryB) throws IllegalAccessException {
         super(fullName, hasDrivingLicense, experience);
+        //setCategory(categoryB);
     }
 
     @Override

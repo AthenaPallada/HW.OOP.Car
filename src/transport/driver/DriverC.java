@@ -2,11 +2,14 @@ package transport.driver;
 
 import transport.Truck;
 import transport.category.CategoryC;
+import transport.category.CategoryD;
 
 public class DriverC extends Driver<Truck> {
+    //private CategoryC categoryC;
 
-    public DriverC(String fullName, boolean hasDrivingLicense, int experience, CategoryC categoryC) {
+    public DriverC(String fullName, boolean hasDrivingLicense, int experience) { //CategoryC categoryC) throws IllegalAccessException {
         super(fullName, hasDrivingLicense, experience);
+        //setCategory(categoryC);
     }
 
     @Override
